@@ -1,0 +1,16 @@
+@import '../../shared/styles/constants';
+
+.input {
+    border: none;
+    border-bottom: 2px solid $primary-pink;
+    background-color: rgba(0, 0, 0, .8);
+    box-sizing: border-box;
+    padding: 13px 15px;
+    color: #fff;
+    border-radius: 3px;
+    width: 100%;
+
+    &::placeholder {
+        color: #fff;
+    }
+}

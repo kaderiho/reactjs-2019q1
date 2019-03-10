@@ -1,0 +1,19 @@
+@import '../../shared/styles/constants';
+
+.headerWrapper {
+    background: url('../../images/header-bg.gif') no-repeat center top;
+    background-size: cover;
+}
+
+.headerInner {
+    width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 32px;
+}

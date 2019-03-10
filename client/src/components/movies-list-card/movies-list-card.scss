@@ -1,0 +1,44 @@
+@import '../../shared/styles/constants';
+
+.moviesList-itemList {
+    margin-bottom: 30px;
+    width: 30%;
+}
+
+.moviesList-itemListLink {
+    display: inline-block;
+    height: 435px;
+    width: 100%;
+}
+
+.moviesList-itemListImage {
+    width: 100%;
+}
+
+.moviesList-itemListTitle {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.moviesList-itemListName {
+    text-transform: uppercase;
+    color: $primary-text-grey;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.moviesList-itemListDate {
+    color: $primary-text-grey;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    padding: 1px 7px;
+    font-size: 13px;
+}
+
+.moviesList-itemListDescription {
+    color: $secondary-text-grey;
+    padding: 0 5px;
+}

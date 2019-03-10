@@ -1,0 +1,19 @@
+@import '../../shared/styles/constants';
+
+.sortControls-label {
+    margin-right: 16px;
+    font-size: 14px;
+}
+
+.sortControls-control {
+    text-transform: lowercase;
+    font-weight: bold;
+
+    &--active {
+        color: $primary-pink;
+    }
+}
+
+.sortControls-control + .sortControls-control {
+    margin-left: 10px;
+}

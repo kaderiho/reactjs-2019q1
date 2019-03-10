@@ -1,0 +1,41 @@
+@import './shared/styles/constants';
+@import './shared/styles/fonts';
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    position: relative;
+    width: 1024px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.logoLink {
+    text-decoration: none;
+    color: $primary-pink;
+    letter-spacing: .5px;
+}
+
+.subHeader {
+    display: flex;
+    height: 45px;
+    background-color: #eee;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+}
+
+.filterResults {
+    color: $primary-text-grey;
+    font-size: 14px;
+    font-weight: bold;
+}
