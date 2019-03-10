@@ -2,7 +2,7 @@ import React from 'react';
 
 import './movies-list-card.scss';
 
-export default props => {
+const MoviesListCard = props => {
     return (
         <div className="moviesList-itemList">
             <a className="moviesList-itemListLink" href="#" style={{
@@ -20,5 +20,7 @@ export default props => {
                 {props.genres.join(' & ')}
             </div>
         </div>
-    )
+    );
 }
+
+export default MoviesListCard;

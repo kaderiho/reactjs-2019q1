@@ -2,7 +2,7 @@ import React from 'react';
 
 import './movie-details.scss';
 
-export default props => {
+const MovieDetails = props => {
     return (
         <div className="movieDetails">
             <img className="movieDetails-image" src={props.poster_path}/>
@@ -20,5 +20,7 @@ export default props => {
                 <p className="movieDetailsDescription-overview">{props.overview}</p>
             </div>
         </div>
-    )
+    );
 }
+
+export default MovieDetails;

@@ -1,4 +1,3 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -8,7 +7,6 @@ const path = require('path');
 const htmlPlugin = new htmlWebpackPlugin({
     template: "./src/index.html"
 });
-const MiniCSSExtrancPlugin = new MiniCssExtractPlugin({});
 
 module.exports = {
     entry: {
@@ -44,15 +42,6 @@ module.exports = {
                 }]
             },
 
-            {
-                test: /\.(sa|sc|c)ss$/,
-                use: [
-                    process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
-            },
-
             /**
              * File loader.
              * Allows to import images.
@@ -79,7 +68,6 @@ module.exports = {
     },
 
     plugins: [
-        MiniCSSExtrancPlugin,
         htmlPlugin
     ]
 };

@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 
 import './app.scss';
 
-// Pages;
+// Pages
 import MoviePage from './pages/movie/movie';
 import MainPage from './pages/main/main';
 
 /**
- * - React.createElement
- * - React.Component
- * - React.PureComponent
- * - functional components
+ * - React.createElement: button, input;
+ * - functional components: main, movie pages;
+ * - React.Component: header-filter;
+ * - React.PureComponent: MoviesList;
  */
 
 ReactDOM.render(<MainPage/>, document.querySelector('#app'));

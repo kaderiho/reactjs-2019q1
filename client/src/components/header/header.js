@@ -3,7 +3,7 @@ import React from 'react';
 import Button from '../button/button';
 import './header.scss';
 
-export default () => {
+const Header = () => {
     return (
         <header>
             <a href="#" className="logoLink">netflixroulette</a>
@@ -11,3 +11,5 @@ export default () => {
         </header>
     )
 }
+
+export default Header;

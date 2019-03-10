@@ -1,15 +1,15 @@
 {
     "name": "client",
     "sideEffects": [
-        "./src/*.scss"
+        "*.scss"
     ],
     "version": "1.0.0",
     "description": "ReactJS UI application",
     "main": "index.js",
     "scripts": {
         "server:dev": "webpack-dev-server --config ./config/webpack.config.dev.js --open --hot",
-        "build:dev": "webpack --config ./config/webpack.config.dev.js --env.NODE_ENV='development'",
-        "build:prod": "webpack --config ./config/webpack.config.prod.js --env.NODE_ENV='production'",
+        "build:dev": "webpack --config ./config/webpack.config.dev.js",
+        "build:prod": "webpack --config ./config/webpack.config.prod.js",
         "test": "jest"
     },
     "keywords": [

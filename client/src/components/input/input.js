@@ -2,17 +2,13 @@ import React from 'react';
 
 import './input.scss';
 
-export default props => {
+const Input = props => {
     return (
-        <div className="inputControl">
-            <input
-                className="input"
-                onChange={ev => { props.onChange(ev)}}
-                placeholder={props.placeholder}
-                value={props.value}
-                name={props.name}
-                type={props.type} 
-                />
-        </div>
-    )
+        React.createElement('input', {
+            className: 'input',
+            ...props
+        }, null)
+    );
 }
+
+export default Input;
