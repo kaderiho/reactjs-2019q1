@@ -3,18 +3,24 @@ import classNames from 'classnames';
 
 import './button.scss';
 
-const Button = props => {
-    const buttonSize = props.size || 'medium';
-    const buttonClass = classNames('btn', props.className, `btn--${buttonSize}`, {
-        [`btn--${props.variant}`]: props.variant,
-        [`btn--${props.color}`]: props.color
+const Button = ({ 
+    className,
+    children,
+    variant, 
+    color, 
+    size
+}) => {
+    const buttonSize = size || 'medium';
+    const buttonClass = classNames('btn', className, `btn--${buttonSize}`, {
+        [`btn--${variant}`]: variant,
+        [`btn--${color}`]: color
     });
 
     return (
         React.createElement('button', { 
             className: buttonClass 
-        }, props.children)
+        }, children)
     );
-}
+};
 
 export default Button;

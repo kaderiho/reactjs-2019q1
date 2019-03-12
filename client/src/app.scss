@@ -14,7 +14,7 @@ body {
 
 main {
     position: relative;
-    width: 1024px;
+    width: $desktop-breakpoint;
     margin: 0 auto;
     flex: 1;
 }

@@ -1,8 +1,8 @@
 import React, { Component }  from 'react';
 
 import Button from '../button/button';
-import Input from '../input/input';
-import './header-filter.scss';
+import Input from '../Input/Input';
+import './HeaderFilter.scss';
 
 class HeaderFilter extends Component {
     state = {
@@ -41,6 +41,6 @@ class HeaderFilter extends Component {
             </div>
         )
     }
-}
+};
 
 export default HeaderFilter;

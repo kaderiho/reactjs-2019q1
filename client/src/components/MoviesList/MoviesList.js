@@ -1,7 +1,7 @@
 import React from 'react';
 
-import MovieListCard from '../movies-list-card/movies-list-card';
-import './movies-list.scss';
+import MovieListCard from '../MoviesListCard/MoviesListCard';
+import './MoviesList.scss';
 
 class MoviesList extends React.PureComponent {
     render() {
@@ -11,6 +11,6 @@ class MoviesList extends React.PureComponent {
             </div>
         );
     }
-}
+};
 
 export default MoviesList;
