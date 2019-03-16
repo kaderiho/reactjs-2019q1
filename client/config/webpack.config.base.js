@@ -1,25 +1,30 @@
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-/**
- * Build plugins;
- */
-const htmlPlugin = new htmlWebpackPlugin({
-    template: "./src/index.html"
-});
-
 module.exports = {
+    /**
+     * Entry application point
+     */
     entry: {
         app: './src/index.js'
     },
 
+    /**
+     * Bundle output for predefined entry
+     */
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.[contenthash].js'
     },
 
     module: {
         rules: [
+            /**
+             * Define loader for .js files
+             * 
+             * Transpile .js files by babel using preset-env/preset-react
+             * Allowed to use class properties and HMR during development
+             */
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -36,16 +41,17 @@ module.exports = {
                             ['@babel/preset-react']
                         ],
                         plugins: [
-                            "@babel/plugin-proposal-class-properties"
+                            "@babel/plugin-proposal-class-properties",
+                            "react-hot-loader/babel"
                         ]
                     }
                 }]
             },
 
             /**
-             * File loader.
-             * Allows to import images.
-             * This will emit file.png as a file in the output directory and returns the public URI of the file.
+             * File loader
+             * 
+             * This will emit file.[extension] as a file in the output directory and returns the public URI of the file
              * 
              * See: https://www.npmjs.com/package/file-loader
              */
@@ -58,16 +64,10 @@ module.exports = {
         ]
     },
 
-    optimization: {
-        /**
-         * Turn on tree-shaking for dead code;
-         * 
-         * The "sideEffects" in package.json value should contains files that should not be removed during shaking;
-         */
-        usedExports: true
-    },
-
     plugins: [
-        htmlPlugin
+        new htmlWebpackPlugin({
+            title: 'ReactJS global mentoring application.',
+            template: "./src/index.html"
+        })
     ]
 };

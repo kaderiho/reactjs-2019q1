@@ -4,12 +4,13 @@
         "*.scss"
     ],
     "version": "1.0.0",
-    "description": "ReactJS UI application",
+    "description": "ReactJS global mentoring application",
     "main": "index.js",
     "scripts": {
-        "server:dev": "webpack-dev-server --config ./config/webpack.config.dev.js --open --hot",
-        "build:dev": "webpack --config ./config/webpack.config.dev.js",
-        "build:prod": "webpack --config ./config/webpack.config.prod.js",
+        "develop": "webpack-dev-server --config ./config/webpack.config.dev.js --open --hot",
+        "build:dev": "npm run clean:dist && webpack --config ./config/webpack.config.dev.js",
+        "build:prod": "npm run clean:dist && webpack --config ./config/webpack.config.prod.js",
+        "clean:dist": "rimraf dist",
         "test": "jest"
     },
     "keywords": [
@@ -24,9 +25,11 @@
         "@babel/preset-react": "^7.0.0",
         "babel-loader": "^8.0.5",
         "css-loader": "^2.1.1",
+        "file-loader": "^3.0.1",
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "^0.5.0",
         "node-sass": "^4.11.0",
+        "react-hot-loader": "^4.8.0",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
         "webpack": "^4.29.6",
@@ -36,7 +39,6 @@
     },
     "dependencies": {
         "classnames": "^2.2.6",
-        "file-loader": "^3.0.1",
         "jest": "^24.3.1",
         "react": "^16.8.4",
         "react-dom": "^16.8.4",

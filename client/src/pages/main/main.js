@@ -25,7 +25,7 @@ const MainPage = () => {
             </div>
             <main>
                 <div className="subHeader">
-                    <span className="filterResults">7 movies found</span>
+                    <span className="filterResults">1 movies found</span>
                     <SortControls />
                 </div>
                 {movies.length ? 

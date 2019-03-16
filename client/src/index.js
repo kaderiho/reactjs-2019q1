@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './app.scss';
+import App from './app';
 
-// Pages
-import MoviePage from './pages/Movie/Movie';
-import MainPage from './pages/Main/Main';
-
-ReactDOM.render(<MainPage/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));
