@@ -1,15 +1,11 @@
 {
     "name": "client",
-    "sideEffects": [
-        "*.scss"
-    ],
     "version": "1.0.0",
     "description": "ReactJS global mentoring application",
     "main": "index.js",
     "scripts": {
-        "develop": "webpack-dev-server --config ./config/webpack.config.dev.js",
-        "build:dev": "npm run clean:dist && webpack --config ./config/webpack.config.dev.js",
-        "build:prod": "npm run clean:dist && webpack --config ./config/webpack.config.prod.js",
+        "develop": "webpack-dev-server --config ./config/webpack.config.dev.js --env.ENVIRONMENT=development",
+        "build": "npm run clean:dist && webpack --config ./config/webpack.config.prod.js --env.ENVIRONMENT=production",
         "clean:dist": "rimraf dist",
         "test": "jest"
     },
@@ -29,13 +25,16 @@
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "^0.5.0",
         "node-sass": "^4.11.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.1",
         "react-hot-loader": "^4.8.0",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
+        "uglifyjs-webpack-plugin": "^2.1.2",
         "webpack": "^4.29.6",
         "webpack-cli": "^3.2.3",
         "webpack-dev-server": "^3.2.1",
-        "webpack-merge": "^4.2.1"
+        "webpack-merge": "^4.2.1",
+        "webpack-visualizer-plugin": "^0.1.11"
     },
     "dependencies": {
         "classnames": "^2.2.6",

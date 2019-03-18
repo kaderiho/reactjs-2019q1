@@ -6,4 +6,4 @@ import './app.scss';
 import MoviePage from './pages/Movie/Movie';
 import MainPage from './pages/Main/Main';
 
-export default process.env.NODE_ENV === 'production' ? MainPage : hot(MainPage);
+export default ENVIRONMENT === 'production' ? MainPage : hot(MainPage);
