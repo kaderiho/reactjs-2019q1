@@ -39,3 +39,11 @@ main {
     font-size: 14px;
     font-weight: bold;
 }
+
+.error {
+    &--application {
+        background-color: $primary-bg;
+        color: $primary-pink;
+        padding: 5px 10px;
+    }
+}

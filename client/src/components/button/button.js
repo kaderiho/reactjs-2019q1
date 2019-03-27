@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './button.scss';
+import './Button.scss';
 
-const Button = ({ 
+const Button = ({
     className,
     children,
     variant, 
@@ -16,11 +16,7 @@ const Button = ({
         [`btn--${color}`]: color
     });
 
-    return (
-        React.createElement('button', { 
-            className: buttonClass 
-        }, children)
-    );
+    return <button className={buttonClass}>{children}</button>
 };
 
 export default Button;

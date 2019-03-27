@@ -1,6 +1,7 @@
 import React from 'react';
 
-import PagePlaceholder from '../../components/PagePlaceholder/PagePlaceholder'
+import PagePlaceholder from '../../components/PagePlaceholder/PagePlaceholder';
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import HeaderFilter from '../../components/HeaderFilter/HeaderFilter';
 import SortControls from '../../components/SortControls/SortControls';
 import MoviesList from '../../components/MoviesList/MoviesList';
@@ -20,7 +21,9 @@ const MainPage = () => {
             <div className="headerWrapper">
                 <div className="headerInner">
                     <Header/>
-                    <HeaderFilter/>
+                    <ErrorBoundary render={() => <p className="error--application">Oops! Filter currently is not available</p>}>
+                        <HeaderFilter/>
+                    </ErrorBoundary>
                 </div>
             </div>
             <main>

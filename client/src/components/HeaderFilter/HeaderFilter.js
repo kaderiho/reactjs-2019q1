@@ -10,15 +10,13 @@ class HeaderFilter extends Component {
     }
 
     render() {
-        const { filter } = this.state;
-
         return (
             <div className="headerFilter">
                 <p className="headerFilter-title">Find your moview</p>
                 <Input 
                     placeholder="Type movie name here"
+                    value={this.state.filter}
                     onChange={() => {}}
-                    value={filter}
                 />
 
                 <div className="headerSubFilter">
