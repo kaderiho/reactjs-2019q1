@@ -1,6 +1,12 @@
 @import '../../shared/styles/constants';
 
-.input {
+.inputHolder {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+}
+
+.inputHolder-input {
     font-family: 'Source Sans Pro', Helvetica, sans-serif;
     border: none;
     border-bottom: 2px solid $primary-pink;
@@ -9,9 +15,21 @@
     padding: 13px 15px;
     color: #fff;
     border-radius: 3px;
-    width: 100%;
+    flex: 1;
 
     &::placeholder {
         color: #fff;
+    }
+}
+
+.inputHolder-label {
+    color: #fff;
+
+    html[dir="rtl"] & {
+        margin-left: 15px;
+    }
+
+    html[dir="ltr"] & {
+        margin-right: 15px;
     }
 }

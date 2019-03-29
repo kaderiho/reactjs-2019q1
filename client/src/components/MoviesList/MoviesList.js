@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MovieListCard from '../MoviesListCard/MoviesListCard';
+import MovieListCard from 'components/MoviesListCard/MoviesListCard';
 import './MoviesList.scss';
 
 class MoviesList extends React.PureComponent {

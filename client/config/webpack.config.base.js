@@ -4,6 +4,18 @@ const merge = require("webpack-merge");
 const webpack = require('webpack');
 const path = require('path');
 
+const aliasEntries = ['components', 'shared', 'pages', 'utils'];
+
+const defineAlias = () => {
+    const aliases = {};
+
+    aliasEntries.forEach(entry => {
+        aliases[entry] = path.resolve(__dirname, `../src/${entry}`);
+    });
+
+    return aliases;
+}
+
 module.exports = env => {
     return merge([{
         /**
@@ -82,6 +94,15 @@ module.exports = env => {
                     }
                 }
             ]
+        },
+
+        resolve: {
+            /**
+             * Define aliases
+             * 
+             * Output represented as an object with the following fields: [aliasName]: aliasPath
+             */
+            alias: defineAlias(aliasEntries)
         },
 
         plugins: [

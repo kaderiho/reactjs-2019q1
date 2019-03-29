@@ -1,10 +1,10 @@
 import React from 'react';
 
-import PagePlaceholder from '../../components/PagePlaceholder/PagePlaceholder';
-import MovieDetails from '../../components/MovieDetails/MovieDetails';
-import MoviesList from '../../components/MoviesList/MoviesList'
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import PagePlaceholder from 'components/PagePlaceholder/PagePlaceholder';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
+import MoviesList from 'components/MoviesList/MoviesList'
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
 
 import './Movie.scss';
 

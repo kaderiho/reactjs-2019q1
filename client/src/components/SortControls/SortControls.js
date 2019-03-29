@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../button/button';
+import Button from 'components/button/button';
 import './SortControls.scss';
 
 const SortControls = () => (

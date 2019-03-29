@@ -6,8 +6,10 @@ import './Button.scss';
 const Button = ({
     className,
     children,
-    variant, 
-    color, 
+    onClick,
+    variant,
+    color,
+    name,
     size
 }) => {
     const buttonSize = size || 'medium';
@@ -16,7 +18,14 @@ const Button = ({
         [`btn--${color}`]: color
     });
 
-    return <button className={buttonClass}>{children}</button>
+    return (
+        <button 
+            className={buttonClass} 
+            onClick={onClick}
+            name={name}>
+            {children}
+        </button>
+    );
 };
 
 export default Button;

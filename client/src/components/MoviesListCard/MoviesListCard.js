@@ -2,7 +2,7 @@ import React from 'react';
 
 import './MoviesListCard.scss';
 
-import { getFullYear } from '../../utils/date';
+import { getFullYear } from 'utils/date';
 
 const MoviesListCard = ({
     release_date,
