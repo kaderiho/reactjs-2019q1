@@ -4,16 +4,15 @@ import classNames from 'classnames';
 import './Button.scss';
 
 const Button = ({
+    variant = 'contained',
+    color = 'primary',
+    size = 'medium',
     className,
     children,
     onClick,
-    variant,
-    color,
     name,
-    size
 }) => {
-    const buttonSize = size || 'medium';
-    const buttonClass = classNames('btn', className, `btn--${buttonSize}`, {
+    const buttonClass = classNames('btn', className, `btn--${size}`, {
         [`btn--${variant}`]: variant,
         [`btn--${color}`]: color
     });

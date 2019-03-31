@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component Should render correctly 1`] = `
+<footer>
+  <a
+    className="logoLink"
+    href="/"
+  >
+    netflixroulette
+  </a>
+</footer>
+`;

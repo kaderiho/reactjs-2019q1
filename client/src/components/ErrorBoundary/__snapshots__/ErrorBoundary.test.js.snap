@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary component Should render correctly with default props 1`] = `
+<div>
+  My mock element
+</div>
+`;
+
+exports[`ErrorBoundary component Should render error message 1`] = `
+<ErrorBoundary
+  render={[Function]}
+>
+  <div>
+    Oop! Something went wrong.
+  </div>
+</ErrorBoundary>
+`;

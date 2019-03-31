@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Button from 'components/button/button';
+import Button from 'components/Button/Button';
 import './header.scss';
 
 const Header = () => (
     <header>
         <a href="#" className="logoLink">netflixroulette</a>
-        <Button variant="contained" color="fourth">Search</Button>
+        <Button variant="contained" color="fourth" className="header-searchButton">Search</Button>
     </header>
 );
     

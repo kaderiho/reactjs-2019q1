@@ -6,13 +6,13 @@ const path = require('path');
 
 const aliasEntries = ['components', 'shared', 'pages', 'utils'];
 
-const defineAlias = () => {
+const defineAlias = entries => {
     const aliases = {};
 
-    aliasEntries.forEach(entry => {
+    entries.forEach(entry => {
         aliases[entry] = path.resolve(__dirname, `../src/${entry}`);
     });
-
+ 
     return aliases;
 }
 
@@ -45,22 +45,7 @@ module.exports = env => {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     use:[{
-                        loader: "babel-loader",
-                        options: {
-                            babelrc: false,
-                            presets: [
-                                ['@babel/preset-env', {
-                                    targets: {
-                                        IE: 11
-                                    }
-                                }],
-                                ['@babel/preset-react']
-                            ],
-                            plugins: [
-                                "@babel/plugin-proposal-class-properties",
-                                "react-hot-loader/babel"
-                            ]
-                        }
+                        loader: "babel-loader"
                     }]
                 },
 

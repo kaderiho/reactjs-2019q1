@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component Should render correctly with default props 1`] = `
+<button
+  className="btn btn--medium btn--contained btn--primary"
+>
+  My button
+</button>
+`;
+
+exports[`Button component Should render correctly with passed props 1`] = `
+<button
+  className="btn btn--small btn--transparent btn--secondary"
+>
+  My button
+</button>
+`;

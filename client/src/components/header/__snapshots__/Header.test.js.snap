@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component Should render correctly 1`] = `
+<header>
+  <a
+    className="logoLink"
+    href="#"
+  >
+    netflixroulette
+  </a>
+  <Button
+    className="header-searchButton"
+    color="fourth"
+    variant="contained"
+  >
+    Search
+  </Button>
+</header>
+`;

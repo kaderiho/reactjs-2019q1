@@ -11,6 +11,7 @@
         cursor: pointer;
     }
 
+    // Colors
     &--primary {
         color: $primary-pink;
         background-color: #fff;
@@ -31,10 +32,7 @@
         color: $primary-pink;
     }
 
-    &--transparent {
-        background: none;
-    }
-
+    // Sizes
     &--small {
         padding: 4px 12px;
         font-size: 12px;
@@ -43,5 +41,10 @@
     &--medium {
         padding: 8px 15px;
         font-size: 13px;
+    }
+
+    // Variants
+    &--transparent {
+        background: none;
     }
 }
