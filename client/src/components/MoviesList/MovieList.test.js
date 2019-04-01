@@ -9,7 +9,7 @@ const itemsList = [{"id":412302,"title":"Gemini","tagline":"","vote_average":10,
  * Tests
  * 
  * - To match snapshot
- * - Render items list
+ * - Render items list correctly
  */
 describe('<MovieList /> component: ', () => {
     it('Should render correctly', () => {

@@ -7,9 +7,8 @@ const inputChangeFn = jest.fn();
 /**
  * Tests:
  * 
- * - Snapshot match
- * - onChange handler call
- * - Label existing
+ * - To match snapshot
+ * - Input onChange handler is called
  */
 describe('<Input /> component', () => {
     it('Should render correctly', () => {
@@ -24,11 +23,5 @@ describe('<Input /> component', () => {
         wrapper.find('input').simulate('change');
 
         expect(inputChangeFn).toHaveBeenCalled();
-    });
-
-    it('Label should exist in case of passed label text', () => {
-        const wrapper = mount(<Input label="Some label" />);
-
-        expect(wrapper.exists('.inputHolder-label')).toEqual(true);
     });
 });

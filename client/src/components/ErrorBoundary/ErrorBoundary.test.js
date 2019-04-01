@@ -2,6 +2,13 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ErrorBoundary from './ErrorBoundary';
 
+/**
+ * Tests
+ * 
+ * - To match snapshot
+ * - Show error message in case of children error happened
+ */
+
 describe('ErrorBoundary component', () => {
     it('Should render correctly with default props', () => {
         const mockComponent = <div>My mock element</div>

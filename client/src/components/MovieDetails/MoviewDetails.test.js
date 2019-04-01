@@ -6,7 +6,7 @@ import MoviewDetails from './MovieDetails';
 /**
  * Tests:
  * 
- * - Match snapshot
+ * - To match snapshot
  */
 describe('<MoviewDetails /> component: ', () => {
     it('Should render correctly', () => {

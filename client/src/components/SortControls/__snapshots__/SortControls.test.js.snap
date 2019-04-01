@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SortControls /> component Should render correctly 1`] = `
+<div
+  className="sortControls"
+>
+  <span
+    className="sortControls-label"
+  >
+    Sort by
+  </span>
+  <Button
+    className="sortControls-control sortControls-control--active"
+    color="transparent"
+    size="small"
+  >
+    Release data
+  </Button>
+  <Button
+    className="sortControls-control"
+    color="transparent"
+    size="small"
+  >
+    Rating
+  </Button>
+</div>
+`;

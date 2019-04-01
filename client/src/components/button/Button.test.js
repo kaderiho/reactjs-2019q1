@@ -4,6 +4,14 @@ import { shallow, mount } from 'enzyme';
 
 const buttonClickFn = jest.fn();
 
+/**
+ * Tests
+ * 
+ * - To match snapshot
+ * - To match snapshot with passed props
+ * - onClick should be called on button click
+ */
+
 describe('Button component', () => {
     it('Should render correctly with default props', () => {
         const wrapper = shallow(<Button>My button</Button>);
