@@ -15,7 +15,6 @@ describe('Footer component', () => {
 
     it('Link should has correct href', () => {
         const wrapper = mount(<Footer />);
-
-        expect(wrapper.exists({ href: '/'})).toEqual(true);
+        expect(wrapper.find('a[href="/"]')).toHaveLength(1);
     });
 });

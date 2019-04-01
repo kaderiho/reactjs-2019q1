@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> component Should render correctly 1`] = `
+<div
+  className="inputHolder"
+>
+  <input
+    className="inputHolder-input"
+  />
+</div>
+`;

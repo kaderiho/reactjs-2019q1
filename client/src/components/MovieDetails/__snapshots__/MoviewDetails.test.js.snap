@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MoviewDetails /> component:  Should render correctly 1`] = `
+<div
+  className="movieDetails"
+>
+  <img
+    className="movieDetails-image"
+  />
+  <div
+    className="movieDetailsDescription"
+  >
+    <h1
+      className="movieDetailsDescription-title"
+    >
+       
+      <span
+        className="movieDetailsDescription-raiting"
+      />
+    </h1>
+    <span
+      className="movieDetailsDescription-releaseDate"
+    >
+      NaN
+    </span>
+    <span
+      className="movieDetailsDescription-runtime"
+    >
+       min
+    </span>
+    <p
+      className="movieDetailsDescription-overview"
+    />
+  </div>
+</div>
+`;

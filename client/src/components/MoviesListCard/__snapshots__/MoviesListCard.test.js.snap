@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MoviesListCard /> component Should render correctly 1`] = `
+<div
+  className="moviesList-itemList"
+>
+  <a
+    className="moviesList-itemListLink"
+    href="#"
+    style={
+      Object {
+        "background": "url(https://image.tmdb.org/t/p/w500/oIltQs7MPk7VQFG3DJfgC63mShU.jpg) center top no-repeat",
+        "backgroundSize": "cover",
+      }
+    }
+  />
+  <div
+    className="moviesList-itemListTitle"
+  >
+    <span
+      className="moviesList-itemListName"
+    >
+      Gemini
+    </span>
+    <span
+      className="moviesList-itemListDate"
+    >
+      2018
+    </span>
+  </div>
+  <div
+    className="moviesList-itemListDescription"
+  >
+    Mystery & Thriller
+  </div>
+</div>
+`;
