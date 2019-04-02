@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 
-import Button from 'components/button/button';
-import Input from 'components/input/input';
+import Button from 'components/Button/Button';
+import Input from 'components/Input/Input';
 import './HeaderFilter.scss';
 
 class HeaderFilter extends Component {
