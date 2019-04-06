@@ -5,6 +5,7 @@ module.exports = {
         "json",
         "html"
     ],
+    testPathIgnorePatterns: ['<rootDir>/cypress'],
     snapshotSerializers: [
         "enzyme-to-json/serializer"
     ],
