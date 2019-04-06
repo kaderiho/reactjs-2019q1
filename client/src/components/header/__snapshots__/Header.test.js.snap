@@ -8,12 +8,5 @@ exports[`Header component Should render correctly 1`] = `
   >
     netflixroulette
   </a>
-  <Button
-    className="header-searchButton"
-    color="fourth"
-    variant="contained"
-  >
-    Search
-  </Button>
 </header>
 `;

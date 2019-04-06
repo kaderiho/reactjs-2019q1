@@ -7,7 +7,7 @@ exports[`<HeaderFilter /> component Should render correctly 1`] = `
   <p
     className="headerFilter-title"
   >
-    Find your moview
+    Find your movie
   </p>
   <Input
     id="searchFilter"
@@ -26,8 +26,8 @@ exports[`<HeaderFilter /> component Should render correctly 1`] = `
     </span>
     <Button
       className="headerSubFilter-button"
-      color="third"
-      name="FilterByTitle"
+      color="secondary"
+      name="filterByTitle"
       onClick={[Function]}
       size="small"
     >
@@ -36,7 +36,7 @@ exports[`<HeaderFilter /> component Should render correctly 1`] = `
     <Button
       className="headerSubFilter-button"
       color="third"
-      name="FilterByGenre"
+      name="filterByGenre"
       onClick={[Function]}
       size="small"
     >

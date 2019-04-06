@@ -3,7 +3,7 @@ import React from 'react';
 import MovieListCard from 'components/MoviesListCard/MoviesListCard';
 import './MoviesList.scss';
 
-class MoviesList extends React.PureComponent {
+class MoviesList extends React.Component {
     render() {
         return (
             <div className="moviesList">

@@ -6,7 +6,7 @@ import './Header.scss';
 const Header = () => (
     <header>
         <a href="#" className="logoLink">netflixroulette</a>
-        <Button variant="contained" color="fourth" className="header-searchButton">Search</Button>
+        {/* <Button variant="contained" color="fourth" className="header-searchButton">Search</Button> */}
     </header>
 );
     

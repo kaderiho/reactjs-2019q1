@@ -10,15 +10,17 @@ exports[`<SortControls /> component Should render correctly 1`] = `
     Sort by
   </span>
   <Button
-    className="sortControls-control sortControls-control--active"
+    className="sortControls-control"
     color="transparent"
+    onClick={[Function]}
     size="small"
   >
-    Release data
+    Release date
   </Button>
   <Button
     className="sortControls-control"
     color="transparent"
+    onClick={[Function]}
     size="small"
   >
     Rating

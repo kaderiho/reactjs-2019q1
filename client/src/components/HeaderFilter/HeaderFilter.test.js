@@ -24,7 +24,7 @@ describe('<HeaderFilter /> component', () => {
         const spy = jest.spyOn(wrapper.instance(), 'onFilterByHandler');
         wrapper.instance().forceUpdate();
         
-        const filterButton = wrapper.find('button[name="FilterByTitle"]');
+        const filterButton = wrapper.find('button[name="filterByTitle"]');
         filterButton.simulate('click');
         expect(spy).toBeCalled();
     });

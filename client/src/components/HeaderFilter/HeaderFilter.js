@@ -6,8 +6,8 @@ import './HeaderFilter.scss';
 
 class HeaderFilter extends Component {
     state = {
-        searchFilter: '',
-        filterBy: ''
+        filterBy: 'filterByTitle',
+        searchFilter: ''
     }
 
     // On movie search handler
@@ -32,7 +32,7 @@ class HeaderFilter extends Component {
 
         return (
             <div className="headerFilter">
-                <p className="headerFilter-title">Find your moview</p>
+                <p className="headerFilter-title">Find your movie</p>
                 <Input 
                     placeholder="Type movie name here"
                     value={this.state.searchFilter}
@@ -45,15 +45,15 @@ class HeaderFilter extends Component {
                     <span className="headerSubFilter-label">Search by</span>
                     <Button className="headerSubFilter-button"
                             onClick={this.onFilterByHandler}
-                            name="FilterByTitle"
-                            color={filterBy === 'FilterByTitle' ? 'secondary' : 'third'}
+                            name="filterByTitle"
+                            color={filterBy === 'filterByTitle' ? 'secondary' : 'third'}
                             size="small">
                             Title
                     </Button>
                     <Button className="headerSubFilter-button"
                             onClick={this.onFilterByHandler}
-                            name="FilterByGenre"
-                            color={filterBy === 'FilterByGenre' ? 'secondary' : 'third'}
+                            name="filterByGenre"
+                            color={filterBy === 'filterByGenre' ? 'secondary' : 'third'}
                             size="small">
                             Genre
                     </Button>
