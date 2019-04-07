@@ -12,31 +12,17 @@ import './Main.scss';
 import { GET_MOVIES_REQUEST } from '../../store/actions/movies';
 import { connect } from 'react-redux';
 
-import { sortByReleaseDate, sortByRating } from '../../utils/sorting';
+import { sortByReleaseDate, sortByRating, searchByField } from '../../utils/list';
 
 const FilterErrorComponent = () => <p className="error--application">Oops! Filter currently is not available</p>;
 
 class MainPage extends Component {
-    state = {
-        sortBy: 'release_date'
-    }
-
     componentDidMount() {
         this.props.getMoviesList();
     }
 
     render() {
         let { movies } = this.props;
-        let { sortBy } = this.state;
-
-        if (sortBy === 'release_date') {
-            movies = sortByReleaseDate(movies);
-        }
-
-        if (sortBy === 'rating') {
-            movies = sortByRating(movies);
-        }
-
         return (
             <div className="page">
                 <div className="headerWrapper">
@@ -50,14 +36,7 @@ class MainPage extends Component {
                 <main>
                     <div className="subHeader">
                         <span className="filterResults">{movies.length} movies found</span>
-                        <SortControls 
-                            activeSortBy={sortBy}
-                            sortByClickHandler={sortBy => {
-                                this.setState({
-                                    sortBy
-                                });
-                            }}
-                        />
+                        <SortControls />
                     </div>
                     {movies.length ? 
                         <MoviesList movies={movies}/> :
@@ -70,9 +49,27 @@ class MainPage extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    movies: state.movies
-});
+const mapStateToProps = state => {
+    let { searchBy, searchStr } = state.filter;
+    let { sortBy, movies } = state;
+
+    if (sortBy === 'release_date') {
+        movies = sortByReleaseDate(movies);
+    }
+
+    if (sortBy === 'rating') {
+        movies = sortByRating(movies);
+    }
+
+    if (searchBy) {
+        searchBy = searchBy === 'genre' ? 'genres' : searchBy;
+        movies = searchByField(movies, searchBy, searchStr);
+    }
+
+    return {
+        movies
+    }
+};
 
 const mapDispatchToProps = dispatch => ({
     getMoviesList() {

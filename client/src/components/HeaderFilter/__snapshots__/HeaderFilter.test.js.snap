@@ -14,7 +14,6 @@ exports[`<HeaderFilter /> component Should render correctly 1`] = `
     name="searchFilter"
     onChange={[Function]}
     placeholder="Type movie name here"
-    value=""
   />
   <div
     className="headerSubFilter"
@@ -26,7 +25,7 @@ exports[`<HeaderFilter /> component Should render correctly 1`] = `
     </span>
     <Button
       className="headerSubFilter-button"
-      color="secondary"
+      color="third"
       name="filterByTitle"
       onClick={[Function]}
       size="small"

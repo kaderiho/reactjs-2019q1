@@ -1,5 +1,4 @@
-import { all } from 'redux-saga/effects';
-
+import { all, take } from 'redux-saga/effects';
 import { watchFetchMoviesList } from './movies';
 
 export default function* rootSaga() {

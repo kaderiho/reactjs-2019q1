@@ -3,15 +3,18 @@ import classnames from 'classnames';
 import Button from 'components/Button/Button';
 import './SortControls.scss';
 
-const SortControls = ({ activeSortBy, sortByClickHandler }) => (
+import { SET_SORT_BY } from '../../store/actions/sort';
+import { connect } from 'react-redux';
+
+let SortControls = ({ sortBy, onSortByHandler }) => (
     <div className="sortControls">
         <span className="sortControls-label">Sort by</span>
 
         <Button
             className={classnames("sortControls-control", {
-                'sortControls-control--active' : activeSortBy === 'release_date'
+                'sortControls-control--active' : sortBy === 'release_date'
             })}
-            onClick={() => { sortByClickHandler('release_date') }}
+            onClick={() => { onSortByHandler('release_date') }}
             color="transparent"
             size="small">
             Release date
@@ -19,14 +22,26 @@ const SortControls = ({ activeSortBy, sortByClickHandler }) => (
 
         <Button
             className={classnames("sortControls-control", {
-                'sortControls-control--active' : activeSortBy === 'rating'
+                'sortControls-control--active' : sortBy === 'rating'
             })}
-            onClick={() => { sortByClickHandler('rating') }}
+            onClick={() => { onSortByHandler('rating') }}
             color="transparent"
             size="small">
             Rating
         </Button>
     </div>
 );
+
+const mapStateToProps = state => ({
+    sortBy: state.sortBy
+});
+
+const mapDispatchToProps = dispatch => ({
+    onSortByHandler(sortBy) {
+        dispatch(SET_SORT_BY(sortBy));
+    }
+});
+
+SortControls = connect(mapStateToProps, mapDispatchToProps)(SortControls);
 
 export default SortControls;

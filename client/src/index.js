@@ -1,20 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// State management
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from './store/store';
 import { Provider } from 'react-redux';
-import store from './store/store';
 
-import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
-import App from './app';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import MoviePage from './pages/Movie/Movie';
+import MainPage from './pages/Main/Main';
+import './app.scss';
 
-const AppErrorComponent = () => <p className="error--application">Oops! Application currently is not available</p>;
+const AppErrorComponent = () => (<p className="error--application">
+    Oops! Application currently is not available
+</p>);
 
 ReactDOM.render(
     <Provider store={store}>
-        <ErrorBoundary render={AppErrorComponent}>
-            <App/>
-        </ErrorBoundary>
+        <PersistGate loading='Hi there' persistor={persistor}>
+            <ErrorBoundary render={AppErrorComponent}>
+                <MainPage />
+            </ErrorBoundary>
+        </PersistGate>
     </Provider>,
     document.getElementById('app')
 );

@@ -1,29 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SortControls /> component Should render correctly 1`] = `
-<div
-  className="sortControls"
->
-  <span
-    className="sortControls-label"
-  >
-    Sort by
-  </span>
-  <Button
-    className="sortControls-control"
-    color="transparent"
-    onClick={[Function]}
-    size="small"
-  >
-    Release date
-  </Button>
-  <Button
-    className="sortControls-control"
-    color="transparent"
-    onClick={[Function]}
-    size="small"
-  >
-    Rating
-  </Button>
-</div>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
