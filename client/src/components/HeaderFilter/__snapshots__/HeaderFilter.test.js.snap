@@ -26,7 +26,7 @@ exports[`<HeaderFilter /> component Should render correctly 1`] = `
     <Button
       className="headerSubFilter-button"
       color="third"
-      name="filterByTitle"
+      name="title"
       onClick={[Function]}
       size="small"
     >
@@ -35,7 +35,7 @@ exports[`<HeaderFilter /> component Should render correctly 1`] = `
     <Button
       className="headerSubFilter-button"
       color="third"
-      name="filterByGenre"
+      name="genre"
       onClick={[Function]}
       size="small"
     >
