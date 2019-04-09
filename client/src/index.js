@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { PersistGate } from 'redux-persist/integration/react';
-import store, { persistor } from './store/store';
+import store, { persistor } from 'store/store';
 import { Provider } from 'react-redux';
 
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
@@ -16,11 +16,9 @@ const AppErrorComponent = () => (<p className="error--application">
 
 ReactDOM.render(
     <Provider store={store}>
-        <PersistGate loading='Hi there' persistor={persistor}>
-            <ErrorBoundary render={AppErrorComponent}>
-                <MainPage />
-            </ErrorBoundary>
-        </PersistGate>
+        <ErrorBoundary render={AppErrorComponent}>
+            <MainPage />
+        </ErrorBoundary>
     </Provider>,
     document.getElementById('app')
 );

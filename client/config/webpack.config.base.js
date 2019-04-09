@@ -4,7 +4,7 @@ const merge = require("webpack-merge");
 const webpack = require('webpack');
 const path = require('path');
 
-const aliasEntries = ['components', 'shared', 'pages', 'utils'];
+const aliasEntries = ['components', 'shared', 'pages', 'utils', 'store'];
 
 const defineAlias = entries => {
     const aliases = {};

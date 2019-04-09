@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Button from 'components/Button/Button';
 import './SortControls.scss';
 
-import { SET_SORT_BY } from '../../store/actions/sort';
+import { SET_SORT_BY } from 'store/actions/sort';
 import { connect } from 'react-redux';
 
 let SortControls = ({ sortBy, onSortByHandler }) => (

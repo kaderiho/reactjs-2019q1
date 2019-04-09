@@ -9,10 +9,10 @@ import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import './Main.scss';
 
-import { GET_MOVIES_REQUEST } from '../../store/actions/movies';
+import { GET_MOVIES_REQUEST } from 'store/actions/movies';
 import { connect } from 'react-redux';
 
-import { sortByReleaseDate, sortByRating, searchByField } from '../../utils/list';
+import { sortByReleaseDate, sortByRating, searchByField } from 'utils/list';
 
 const FilterErrorComponent = () => <p className="error--application">Oops! Filter currently is not available</p>;
 
