@@ -7,4 +7,8 @@ const getList = () => {
     return axios.get(`${HOST_URL}/movies`);
 };
 
-export { getList };
+const MoviesAPI = {
+    getList
+};
+
+export default MoviesAPI;
