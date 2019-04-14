@@ -1,11 +1,12 @@
-import axios from 'axios';
+import request from './request';
 
 const HOST_URL = 'http://reactjs-cdp.herokuapp.com';
 
 // GET movies list
-const getList = () => {
-    return axios.get(`${HOST_URL}/movies`);
-};
+const getList = () => request({
+    url: `${HOST_URL}/movies`,
+    method: 'get'
+});
 
 const MoviesAPI = {
     getList

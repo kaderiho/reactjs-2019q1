@@ -1,5 +1,5 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
-import MoviesAPI from 'store/apis/movies';
+import MoviesAPI from 'api/movies';
 import { GET_MOVIES_SUCCESS, GET_MOVIES_ERROR } from 'store/actions/movies';
 
 export function* fetchMoviesList() {

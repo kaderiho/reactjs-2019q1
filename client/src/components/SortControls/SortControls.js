@@ -32,8 +32,8 @@ let SortControls = ({ sortBy, onSortByHandler }) => (
     </div>
 );
 
-const mapStateToProps = state => ({
-    sortBy: state.sortBy
+const mapStateToProps = ({ sortBy }) => ({
+    sortBy
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -5,9 +5,15 @@ import './MoviesList.scss';
 
 class MoviesList extends React.Component {
     render() {
+        let { movies } = this.props;
+
+        if (!movies.length) {
+            return '';
+        }
+
         return (
             <div className="moviesList">
-                {this.props.movies.map(movie => <MovieListCard key={movie.id} {...movie}/>)}
+                {movies.map(movie => <MovieListCard key={movie.id} {...movie}/>)}
             </div>
         );
     }

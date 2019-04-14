@@ -60,9 +60,14 @@ export class HeaderFilter extends Component {
     }
 };
 
-const mapStateToProps = state => ({
-    searchStr: state.filter.searchStr,
-    searchBy: state.filter.searchBy
+const mapStateToProps = ({ 
+    filter: {
+        searchBy,
+        searchStr
+    }
+}) => ({
+    searchStr,
+    searchBy
 });
 
 const mapDispatchToProps = dispatch => ({
