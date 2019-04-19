@@ -4,7 +4,7 @@ module.exports = function (api) {
     const presets = [
         ['@babel/preset-env', {
             targets: {
-                IE: 11
+                ie: 11
             }
         }],
         ['@babel/preset-react']

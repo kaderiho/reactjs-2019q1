@@ -1,5 +1,5 @@
-describe('My First test', () => {
-    it('Visits the kitchen sink', () => {
+describe('Movies app: e2e tests', () => {
+    it('HeaderFilter component', () => {
         cy.visit('http://localhost:3000');
 
         // Check that search input works correctly

@@ -42,6 +42,4 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-SortControls = connect(mapStateToProps, mapDispatchToProps)(SortControls);
-
-export default SortControls;
+export default connect(mapStateToProps, mapDispatchToProps)(SortControls);

@@ -1,10 +1,10 @@
 import React, { Component }  from 'react';
 
-import Button from 'components/Button/Button';
-import Input from 'components/Input/Input';
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 import './HeaderFilter.scss';
 
-import { SET_FILTER_BY, SET_FILTER_SEARCH } from 'store/actions/filter';
+import { SET_FILTER_BY, SET_FILTER_SEARCH } from '../../store/actions/filter';
 import { connect } from 'react-redux';
 
 // TODO: usage class is not required?
