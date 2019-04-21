@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from 'store/store';
@@ -16,9 +17,15 @@ const AppErrorComponent = () => (<p className="error--application">
 
 ReactDOM.render(
     <Provider store={store}>
-        <ErrorBoundary render={AppErrorComponent}>
-            <MainPage />
-        </ErrorBoundary>
+        <Router>
+            <div>
+                <ErrorBoundary render={AppErrorComponent}>
+                    <Route path="/" exact component={MainPage} />
+                    <Route path="/film/:id" component={MoviePage} />
+                </ErrorBoundary>
+            </div>
+        </Router>
+
     </Provider>,
     document.getElementById('app')
 );

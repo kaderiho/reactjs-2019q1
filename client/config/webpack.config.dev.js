@@ -9,6 +9,7 @@ const devConfig = () => {
          * Allows to turn on HMR during development, immidiatly see changes in a browser
          */
         devServer: {
+            historyApiFallback: true,
             contentBase: 'client',
             port: 3000,
             open: true,
