@@ -8,8 +8,15 @@ const getList = () => request({
     method: 'get'
 });
 
+// GET movie
+const getItem = movieId => request({
+    url: `${HOST_URL}/movies/${movieId}`,
+    method: 'get'
+});
+
 const MoviesAPI = {
-    getList
+    getList,
+    getItem
 };
 
 export default MoviesAPI;

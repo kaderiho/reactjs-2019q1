@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import PagePlaceholder from 'components/PagePlaceholder/PagePlaceholder';
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
@@ -10,16 +11,9 @@ import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import './Main.scss';
 
-import { GET_MOVIES_REQUEST } from 'store/actions/movies';
-import { connect } from 'react-redux';
-
 const FilterErrorComponent = () => <p className="error--application">Oops! Filter currently is not available</p>;
 
 class MainPage extends Component {
-    componentDidMount() {
-        this.props.getMoviesList();
-    }
-
     render() {
         let { movies } = this.props;
         let SortedMoviesList = SortedList(MoviesList);
@@ -54,12 +48,4 @@ const mapStateToProps = ({ movies }) => ({
     movies
 });
 
-const mapDispatchToProps = dispatch => ({
-    getMoviesList() {
-        dispatch(GET_MOVIES_REQUEST());
-    }
-});
-
-MainPage = connect(mapStateToProps, mapDispatchToProps)(MainPage);
-
-export default MainPage;
+export default connect(mapStateToProps, null)(MainPage);
