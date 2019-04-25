@@ -10,6 +10,7 @@ const aliasEntries = [
     'pages', 
     'utils', 
     'store',
+    'hoc',
     'api'
 ];
 

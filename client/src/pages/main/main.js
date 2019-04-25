@@ -8,7 +8,7 @@ import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
 import HeaderFilter from 'components/HeaderFilter/HeaderFilter';
 import SortControls from 'components/SortControls/SortControls';
 import MoviesList from 'components/MoviesList/MoviesList';
-import SortedList from 'components/SortedList/SortedList';
+import SortedList from 'hoc/SortedList/SortedList';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import './Main.scss';
