@@ -22,7 +22,7 @@ class MainPage extends Component {
             <div className="page">
                 <div className="headerWrapper">
                     <div className="headerInner">
-                        <Header/>
+                        <Header isSearchButtonEnabled={false}/>
                         <ErrorBoundary render={FilterErrorComponent}>
                             <HeaderFilter/>
                         </ErrorBoundary>

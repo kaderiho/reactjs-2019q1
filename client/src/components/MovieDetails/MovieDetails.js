@@ -17,7 +17,7 @@ const MovieDetails = ({
 
         <div className="movieDetailsDescription">
             <h1 className="movieDetailsDescription-title">
-                {title}
+                <span className="movieDetailsDescription-titleText">{title}</span>
                 {' '}
                 <span className="movieDetailsDescription-raiting">
                     {vote_average}

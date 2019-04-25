@@ -19,6 +19,12 @@
     margin: 15px 0;
 }
 
+.movieDetailsDescription-titleText {
+    max-width: 500px;
+    display: inline-block;
+    vertical-align: top;
+}
+
 .movieDetailsDescription-releaseDate,
 .movieDetailsDescription-runtime {
     color: #fff;
@@ -30,7 +36,7 @@
 
 .movieDetailsDescription-raiting {
     border: 1px solid $stroke-grey;
-    margin-left: 15px;
+    margin-left: 10px;
     vertical-align: 3px;
     box-sizing: border-box;
     border-radius: 50%;

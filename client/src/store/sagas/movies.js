@@ -1,6 +1,6 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import MoviesAPI from 'api/movies';
-import { GET_MOVIES_SUCCESS, GET_MOVIES_ERROR, GET_MOVIE_SUCCESS } from 'store/actions/movies';
+import { GET_MOVIES_SUCCESS, GET_MOVIES_ERROR, GET_MOVIE_SUCCESS, GET_MOVIE_ERROR } from 'store/actions/movies';
 
 export function* fetchMoviesList() {
     try {

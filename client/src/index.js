@@ -18,7 +18,6 @@ const AppErrorComponent = () => (<p className="error--application">
     Oops! Application currently is not available
 </p>);
 
-
 class App extends Component {
     componentDidMount() {
         this.props.getMoviesList();

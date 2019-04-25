@@ -7,6 +7,11 @@ const movies = (state = initialState, action) => {
                 ...state,
                 ...action.payload
             ];
+        case 'GET_MOVIE_SUCCESS':
+            return [
+                ...state,
+                ...action.payload
+            ]
         default:
             return state;
     }    
