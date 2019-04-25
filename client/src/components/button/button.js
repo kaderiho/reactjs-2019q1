@@ -7,6 +7,7 @@ const Button = ({
     variant = 'contained',
     color = 'primary',
     size = 'medium',
+    type = 'button',
     className,
     children,
     onClick,
@@ -21,6 +22,7 @@ const Button = ({
         <button 
             className={buttonClass} 
             onClick={onClick}
+            type={type}
             name={name}>
             {children}
         </button>

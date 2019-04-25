@@ -1,60 +1,71 @@
 import React, { Component }  from 'react';
-
-import Button from '../Button/Button';
-import Input from '../Input/Input';
+import { withRouter } from 'react-router-dom';
+import Button from 'components/Button/Button';
+import Input from 'components/Input/Input';
 import './HeaderFilter.scss';
 
-import { SET_FILTER_BY, SET_FILTER_SEARCH } from '../../store/actions/filter';
+import { SET_FILTER_BY } from 'store/actions/filter';
 import { connect } from 'react-redux';
 
-// TODO: usage class is not required?
 export class HeaderFilter extends Component {
+    state = {
+        searchFilter: ''
+    }
+
     onInputHandler = ev => {
-        this.props.onSearchHandler(ev.target.value);
+        this.setState({
+            searchFilter: ev.target.value
+        });
     }
 
     onFilterByHandler = ev => {
         this.props.onFilterByHandler(ev.target.name);
     }
 
-    onSearchHandler = () => {console.log('Search!')}
+    onSearchHandler = (e) => {
+        e.preventDefault();
+        this.props.history.push(`/search/${this.state.searchFilter}`);
+    }
 
     render() {
-        let { searchBy, searchStr } = this.props;
+        let { searchBy } = this.props;
+        let { searchFilter } = this.state;
 
         return (
             <div className="headerFilter">
-                <p className="headerFilter-title">Find your movie</p>
-                <Input 
-                    placeholder="Type movie name here"
-                    value={searchStr}
-                    onChange={this.onInputHandler}
-                    name="searchFilter"
-                    id="searchFilter"
-                />
-
-                <div className="headerSubFilter">
-                    <span className="headerSubFilter-label">Search by</span>
-                    <Button className="headerSubFilter-button"
-                            onClick={this.onFilterByHandler}
-                            name="title"
-                            color={searchBy === 'title' ? 'secondary' : 'third'}
-                            size="small">
-                            Title
-                    </Button>
-                    <Button className="headerSubFilter-button"
-                            onClick={this.onFilterByHandler}
-                            name="genre"
-                            color={searchBy === 'genre' ? 'secondary' : 'third'}
-                            size="small">
-                            Genre
-                    </Button>
-                    <Button className="headerSubFilter-searchButton"
-                            onClick={this.onSearchHandler}
-                            color="secondary">
-                            Search
-                    </Button>
-                </div>
+                <form onSubmit={this.onSearchHandler}>
+                    <p className="headerFilter-title">Find your movie</p>
+                    <Input 
+                        placeholder="Type movie name here"
+                        value={searchFilter}
+                        onChange={this.onInputHandler}
+                        name="searchFilter"
+                        id="searchFilter"
+                    />
+                    <div className="headerSubFilter">
+                        <span className="headerSubFilter-label">Search by</span>
+                        <Button className="headerSubFilter-button"
+                                onClick={this.onFilterByHandler}
+                                name="title"
+                                color={searchBy === 'title' ? 'secondary' : 'third'}
+                                size="small">
+                                Title
+                        </Button>
+                        <Button className="headerSubFilter-button"
+                                onClick={this.onFilterByHandler}
+                                name="genre"
+                                color={searchBy === 'genre' ? 'secondary' : 'third'}
+                                size="small">
+                                Genre
+                        </Button>
+                        <Button className="headerSubFilter-searchButton"
+                                onClick={this.onSearchHandler}
+                                color="secondary"
+                                type="submit">
+                                Search
+                        </Button>
+                    </div>
+                </form>
             </div>
         )
     }
@@ -62,21 +73,16 @@ export class HeaderFilter extends Component {
 
 const mapStateToProps = ({ 
     filter: {
-        searchBy,
-        searchStr
+        searchBy
     }
 }) => ({
-    searchStr,
     searchBy
 });
 
 const mapDispatchToProps = dispatch => ({
     onFilterByHandler(searchBy) {
         dispatch(SET_FILTER_BY(searchBy));
-    },
-    onSearchHandler(searchStr) {
-        dispatch(SET_FILTER_SEARCH(searchStr));
     }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(HeaderFilter));
