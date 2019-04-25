@@ -1,10 +1,10 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
+import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
 import storage from 'redux-persist/lib/storage'
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers/index';
 import rootSaga from './sagas/index';
-import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
 
 const persistConfig = {
     key: 'root',

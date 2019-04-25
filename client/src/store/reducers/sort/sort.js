@@ -1,4 +1,4 @@
-const initialState = '';
+const initialState = 'release_date';
 
 const sortBy = (state = initialState, action) => {
     switch (action.type) {

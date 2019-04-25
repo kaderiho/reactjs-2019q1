@@ -4,16 +4,20 @@ exports[`<MoviesListCard /> component Should render correctly 1`] = `
 <div
   className="moviesList-itemList"
 >
-  <a
-    className="moviesList-itemListLink"
-    href="#"
-    style={
-      Object {
-        "background": "url(https://image.tmdb.org/t/p/w500/oIltQs7MPk7VQFG3DJfgC63mShU.jpg) center top no-repeat",
-        "backgroundSize": "cover",
+  <Link
+    replace={false}
+    to="/film/412302"
+  >
+    <span
+      className="moviesList-itemListLink"
+      style={
+        Object {
+          "background": "url(https://image.tmdb.org/t/p/w500/oIltQs7MPk7VQFG3DJfgC63mShU.jpg) center top no-repeat",
+          "backgroundSize": "cover",
+        }
       }
-    }
-  />
+    />
+  </Link>
   <div
     className="moviesList-itemListTitle"
   >

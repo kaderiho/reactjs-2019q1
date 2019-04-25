@@ -1,35 +1,61 @@
 import React, { Component }  from 'react';
 import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 import Button from 'components/Button/Button';
 import Input from 'components/Input/Input';
 import './HeaderFilter.scss';
 
-import { SET_FILTER_BY } from 'store/actions/filter';
-import { connect } from 'react-redux';
-
 export class HeaderFilter extends Component {
     state = {
-        searchFilter: ''
+        searchStr: '',
+        searchBy: ''
     }
 
     onInputHandler = ev => {
         this.setState({
-            searchFilter: ev.target.value
+            searchStr: ev.target.value
         });
     }
 
     onFilterByHandler = ev => {
-        this.props.onFilterByHandler(ev.target.name);
+        this.setState({
+            searchBy: ev.target.name
+        });
     }
 
     onSearchHandler = (e) => {
         e.preventDefault();
-        this.props.history.push(`/search/${this.state.searchFilter}`);
+
+        let { searchStr, searchBy } = this.state;
+        let search = {};
+
+        if (searchStr) {
+            search['searchStr'] = searchStr;
+        }
+
+        if (searchBy) {
+            search['searchBy'] = searchBy;
+        }
+
+        if (searchStr || searchBy) {
+            this.props.history.push({
+                pathname: '/search/',
+                search: `?${queryString.stringify(search)}`
+            })
+        }
+    }
+
+    componentDidMount() {
+        let { searchStr, searchBy } = queryString.parse(this.props.location.search);
+
+        this.setState({
+            searchStr: searchStr || '',
+            searchBy: searchBy || ''
+        })
     }
 
     render() {
-        let { searchBy } = this.props;
-        let { searchFilter } = this.state;
+        let { searchStr, searchBy } = this.state;
 
         return (
             <div className="headerFilter">
@@ -37,7 +63,7 @@ export class HeaderFilter extends Component {
                     <p className="headerFilter-title">Find your movie</p>
                     <Input 
                         placeholder="Type movie name here"
-                        value={searchFilter}
+                        value={searchStr}
                         onChange={this.onInputHandler}
                         name="searchFilter"
                         id="searchFilter"
@@ -53,8 +79,8 @@ export class HeaderFilter extends Component {
                         </Button>
                         <Button className="headerSubFilter-button"
                                 onClick={this.onFilterByHandler}
-                                name="genre"
-                                color={searchBy === 'genre' ? 'secondary' : 'third'}
+                                name="genres"
+                                color={searchBy === 'genres' ? 'secondary' : 'third'}
                                 size="small">
                                 Genre
                         </Button>
@@ -71,18 +97,4 @@ export class HeaderFilter extends Component {
     }
 };
 
-const mapStateToProps = ({ 
-    filter: {
-        searchBy
-    }
-}) => ({
-    searchBy
-});
-
-const mapDispatchToProps = dispatch => ({
-    onFilterByHandler(searchBy) {
-        dispatch(SET_FILTER_BY(searchBy));
-    }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(HeaderFilter));
+export default withRouter(HeaderFilter);

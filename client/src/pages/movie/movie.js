@@ -49,7 +49,7 @@ class MoviePage extends Component {
 
 const mapStateToProps = ({ movies }, ownProps) => ({
     movie: movies.filter(movie => movie.id === parseInt(ownProps.match.params.id, 10))[0],
-    movies: movies
+    movies
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -3,6 +3,7 @@
 exports[`Button component Should render correctly with default props 1`] = `
 <button
   className="btn btn--medium btn--contained btn--primary"
+  type="button"
 >
   My button
 </button>
@@ -11,6 +12,7 @@ exports[`Button component Should render correctly with default props 1`] = `
 exports[`Button component Should render correctly with passed props 1`] = `
 <button
   className="btn btn--small btn--transparent btn--secondary"
+  type="button"
 >
   My button
 </button>

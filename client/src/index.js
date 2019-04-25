@@ -25,13 +25,17 @@ class App extends Component {
     
     render() {
         return (
-            <BrowserRouter>
-                <Switch>
-                    <Route path="/" exact component={MainPage} />
-                    <Route path="/film/:id" component={MoviePage} />
-                    <Route component={NotFoundPage} />
-                </Switch>
-            </BrowserRouter>
+            <ErrorBoundary render={AppErrorComponent}>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path="/" exact component={MainPage} />
+                        <Route path="/search/:searchFilter" component={MainPage} />
+                        <Route path="/search/" component={MainPage} />
+                        <Route path="/film/:id" component={MoviePage} />
+                        <Route component={NotFoundPage} />
+                    </Switch>
+                </BrowserRouter>
+            </ErrorBoundary>
         )
     }
 }
@@ -46,6 +50,8 @@ App = connect(null, mapDispatchToProps)(App);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+            <App />
+        </PersistGate>
     </Provider>
 , document.getElementById('app'));

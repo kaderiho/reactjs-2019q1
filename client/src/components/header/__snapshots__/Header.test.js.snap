@@ -2,11 +2,10 @@
 
 exports[`Header component Should render correctly 1`] = `
 <header>
-  <a
+  <span
     className="logoLink"
-    href="#"
   >
     netflixroulette
-  </a>
+  </span>
 </header>
 `;

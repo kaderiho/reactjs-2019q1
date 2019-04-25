@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import queryString from 'query-string';
+import { searchByField } from 'utils/list';
 
 import PagePlaceholder from 'components/PagePlaceholder/PagePlaceholder';
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
@@ -15,8 +17,13 @@ const FilterErrorComponent = () => <p className="error--application">Oops! Filte
 
 class MainPage extends Component {
     render() {
-        let { movies } = this.props;
+        let { searchStr, searchBy } = queryString.parse(this.props.location.search);
         let SortedMoviesList = SortedList(MoviesList);
+        let { movies } = this.props;
+
+        if (searchBy && searchStr) {
+            movies = searchByField(movies, searchBy, searchStr);
+        }
 
         return (
             <div className="page">
@@ -34,7 +41,7 @@ class MainPage extends Component {
                         <SortControls />
                     </div>
                     {movies.length ? 
-                        <SortedMoviesList movies={movies}/> :
+                        <SortedMoviesList movies={movies} /> :
                         <PagePlaceholder placeholderMessage="Not films found" />
                     }
                 </main>
@@ -44,7 +51,9 @@ class MainPage extends Component {
     }
 }
 
-const mapStateToProps = ({ movies }) => ({
+const mapStateToProps = ({
+    movies,
+}) => ({
     movies
 });
 

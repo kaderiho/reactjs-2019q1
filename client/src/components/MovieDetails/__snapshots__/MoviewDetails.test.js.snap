@@ -13,6 +13,9 @@ exports[`<MoviewDetails /> component:  Should render correctly 1`] = `
     <h1
       className="movieDetailsDescription-title"
     >
+      <span
+        className="movieDetailsDescription-titleText"
+      />
        
       <span
         className="movieDetailsDescription-raiting"
