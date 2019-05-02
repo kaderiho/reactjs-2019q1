@@ -1,24 +1,40 @@
 {
-  "name": "reactjs-2019q1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "dependencies": {},
-  "devDependencies": {
-    "express": "^4.16.4"
-  },
-  "scripts": {
-    "test": "",
-    "server:prod": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kaderiho/reactjs-2019q1.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kaderiho/reactjs-2019q1/issues"
-  },
-  "homepage": "https://github.com/kaderiho/reactjs-2019q1#readme"
+    "name": "reactjs-2019q1",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "dependencies": {
+        "@babel/node": "^7.2.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/preset-react": "^7.0.0",
+        "axios": "^0.18.0",
+        "babel-loader": "^8.0.5",
+        "cors": "^2.8.5",
+        "express": "^4.16.4",
+        "nodemon": "^1.18.11",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-redux": "^7.0.2",
+        "react-router-dom": "^5.0.0",
+        "redux": "^4.0.1"
+    },
+    "scripts": {
+        "ssr:build": "babel ssr -d views",
+        "develop": "babel-node server.js",
+        "server": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kaderiho/reactjs-2019q1.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kaderiho/reactjs-2019q1/issues"
+    },
+    "homepage": "https://github.com/kaderiho/reactjs-2019q1#readme"
 }
