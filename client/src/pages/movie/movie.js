@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-
+import Loadable from 'react-loadable';
 import PagePlaceholder from 'components/PagePlaceholder/PagePlaceholder';
-import MovieDetails from 'components/MovieDetails/MovieDetails';
 import MoviesList from 'components/MoviesList/MoviesList'
+import Loading from 'components/Loading/Loading';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 
 import { GET_MOVIE_REQUEST } from 'store/actions/movies';
 import { connect } from 'react-redux';
+
+const LoadableMovieComponent = Loadable({
+    loader: () => import('components/MovieDetails/MovieDetails'),
+    loading: Loading
+});
 
 class MoviePage extends Component {
     componentDidMount() {
@@ -27,7 +32,7 @@ class MoviePage extends Component {
                 <div className="headerWrapper">
                     <div className="headerInner">
                         <Header isSearchButtonEnabled={true}/>
-                        <MovieDetails {...movie} />
+                        <LoadableMovieComponent {...movie} />
                     </div>
                 </div>
                 <main>
