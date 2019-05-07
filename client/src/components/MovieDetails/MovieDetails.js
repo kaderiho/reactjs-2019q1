@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './MovieDetails.scss';
-
 import { getFullYear } from 'utils/date';
 
 const MovieDetails = ({

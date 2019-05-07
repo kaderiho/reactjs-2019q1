@@ -1,4 +1,4 @@
-module.exports = (appComponent, preLoadedState) => {
+module.exports = (appComponent, preLoadedState, chunks) => {
     return `<!doctype html>
         <html lang="en">
         <head>
@@ -7,14 +7,14 @@ module.exports = (appComponent, preLoadedState) => {
             content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>Basic ReactJS application</title>
-            <base href="/" />
-            <link href="client/dist/app.css" rel="stylesheet" />
-            <script src="client/dist/app.bundle.js" defer></script>
+            <base href="/dist/" />
+            <link href="app.css" rel="stylesheet" />
             <script>window.__INITIAL_DATA__ = ${JSON.stringify(preLoadedState)}</script>
         </head>
-        
         <body>
             <div id="app">${appComponent}</div>
+            <script src="app.bundle.js" defer></script>
+            ${chunks.join('')}
         </body>
     </html>`
 };

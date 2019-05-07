@@ -1,3 +1,5 @@
+const ReactLoadablePlugin = require('react-loadable/webpack').ReactLoadablePlugin;
+const WebpackAssetsManifest = require('webpack-assets-manifest');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require("webpack-merge");
@@ -37,7 +39,7 @@ module.exports = env => {
          * Bundle output configuration
          */
         output: {
-            path: path.resolve(__dirname, '../dist'),
+            path: path.resolve(__dirname, '../../dist'),
             filename: '[name].bundle.js'
         },
 
@@ -121,7 +123,13 @@ module.exports = env => {
              */
             new webpack.DefinePlugin({
                 'ENVIRONMENT': JSON.stringify(process.env.ENVIRONMENT)
-            })
+            }),
+
+            new ReactLoadablePlugin({
+                filename: path.resolve(__dirname, '../../dist/react-loadable.json'),
+            }),
+
+            new WebpackAssetsManifest({})
         ]
     }]);
 };

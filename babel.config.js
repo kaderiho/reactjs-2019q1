@@ -13,6 +13,7 @@ module.exports = function (api) {
     const plugins = [
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-syntax-dynamic-import",
+        "dynamic-import-node",
         ["module-resolver", {
             "alias": {
                 'components': "./client/src/components",
@@ -24,6 +25,7 @@ module.exports = function (api) {
                 'api': "./client/src/api"
             }
         }],
+        "react-loadable/babel",
         [
         "babel-plugin-transform-require-ignore",
             {

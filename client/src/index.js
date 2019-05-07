@@ -6,6 +6,7 @@ import { Provider, connect } from 'react-redux';
 import { GET_MOVIES_REQUEST } from './store/actions/movies';
 import { BrowserRouter as Router } from 'react-router-dom';
 import store, { persistor } from 'store/store';
+import Loadable from 'react-loadable';
 import App from './app';
 
 const AppErrorComponent = () => (<p className="error--application">
@@ -38,8 +39,12 @@ const mapDispatchToProps = dispatch => ({
 
 Root = connect(null, mapDispatchToProps)(Root);
 
-hydrate(
-    <Provider store={store}>
-        <Root />
-    </Provider>
-, document.getElementById('app'));
+window.onload = () => {
+    Loadable.preloadReady().then(() => {
+        hydrate(
+            <Provider store={store}>
+                <Root />
+            </Provider>
+        , document.getElementById('app'));
+    });
+};

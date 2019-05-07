@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Loadable from 'react-loadable';
+
 import PagePlaceholder from 'components/PagePlaceholder/PagePlaceholder';
 import MoviesList from 'components/MoviesList/MoviesList'
 import Loading from 'components/Loading/Loading';
@@ -8,10 +9,12 @@ import Footer from 'components/Footer/Footer';
 
 import { GET_MOVIE_REQUEST } from 'store/actions/movies';
 import { connect } from 'react-redux';
+import './Movie.scss';
 
 const LoadableMovieComponent = Loadable({
-    loader: () => import('components/MovieDetails/MovieDetails'),
-    loading: Loading
+    loader: () => import(/* webpackChunkName: "MovieDetails" */ 'components/MovieDetails/MovieDetails'),
+    loading: Loading,
+    modules: ['MovieDetails']
 });
 
 class MoviePage extends Component {

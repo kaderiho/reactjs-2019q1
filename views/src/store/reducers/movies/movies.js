@@ -17,9 +17,22 @@ var movies = function movies() {
 
   switch (action.type) {
     case 'GET_MOVIES_SUCCESS':
-      return [].concat((0, _toConsumableArray2.default)(state), (0, _toConsumableArray2.default)(action.payload));
+      // Check if items already exist in the store
+      var filteredPayload = action.payload.filter(function (movie) {
+        return !state.some(function (movieState) {
+          return movieState.id === movie.id;
+        });
+      });
+      return [].concat((0, _toConsumableArray2.default)(state), (0, _toConsumableArray2.default)(filteredPayload));
 
     case 'GET_MOVIE_SUCCESS':
+      // Check if item already exists in the store
+      if (state.some(function (movie) {
+        return movie.id === payload.movie.id;
+      })) {
+        return state;
+      }
+
       return [].concat((0, _toConsumableArray2.default)(state), (0, _toConsumableArray2.default)(action.payload));
 
     default:

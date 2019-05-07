@@ -78,7 +78,7 @@ function fetchMovie(_ref) {
         case 4:
           res = _context2.sent;
           _context2.next = 7;
-          return (0, _effects.put)((0, _movies2.GET_MOVIE_SUCCESS)(res.data.data));
+          return (0, _effects.put)((0, _movies2.GET_MOVIE_SUCCESS)(res.data));
 
         case 7:
           _context2.next = 13;

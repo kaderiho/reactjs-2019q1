@@ -22,6 +22,10 @@ var _index = _interopRequireDefault(require("../store/reducers/index"));
 
 var _template = _interopRequireDefault(require("./template"));
 
+var _reactLoadable = _interopRequireDefault(require("react-loadable"));
+
+var _manifest = _interopRequireDefault(require("../../../dist/manifest.json"));
+
 var _routes = _interopRequireDefault(require("./routes"));
 
 var _app = _interopRequireDefault(require("../app"));
@@ -30,6 +34,7 @@ module.exports = function (req) {
   var store = (0, _redux.createStore)(_index.default);
   var requiredDataPromises = [];
   var context = {};
+  var modules = [];
 
   _routes.default.some(function (route) {
     var match = (0, _reactRouterDom.matchPath)(req.path, route);
@@ -43,14 +48,31 @@ module.exports = function (req) {
   });
 
   var renderMarkup = function renderMarkup() {
-    var markup = (0, _server.renderToString)(_react.default.createElement(_reactRedux.Provider, {
+    var markup = (0, _server.renderToString)(_react.default.createElement(_reactLoadable.default.Capture, {
+      report: function report(moduleName) {
+        return modules.push(moduleName);
+      }
+    }, _react.default.createElement(_reactRedux.Provider, {
       store: store
     }, _react.default.createElement(_reactRouterDom.StaticRouter, {
       context: context,
       location: req.url
-    }, _react.default.createElement(_app.default, null))));
+    }, _react.default.createElement(_app.default, null)))));
     var preloadedState = store.getState();
-    return (0, _template.default)(markup, preloadedState);
+
+    var extractAssets = function extractAssets(assets, chunks) {
+      return Object.keys(assets).filter(function (asset) {
+        return chunks.indexOf(asset.replace('.js', '')) > -1;
+      }).map(function (k) {
+        return assets[k];
+      });
+    };
+
+    var chunks = extractAssets(_manifest.default, modules).map(function (c) {
+      return "<script type=\"text/javascript\" src=\"".concat(c, "\"></script>");
+    });
+    console.log(chunks);
+    return (0, _template.default)(markup, preloadedState, chunks);
   };
 
   return new Promise(function (resolve) {

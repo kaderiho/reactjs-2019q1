@@ -30,6 +30,8 @@ var _reactRouterDom = require("react-router-dom");
 
 var _store = _interopRequireWildcard(require("./store/store"));
 
+var _reactLoadable = _interopRequireDefault(require("react-loadable"));
+
 var _app = _interopRequireDefault(require("./app"));
 
 var AppErrorComponent = function AppErrorComponent() {
@@ -76,6 +78,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 Root = (0, _reactRedux.connect)(null, mapDispatchToProps)(Root);
-(0, _reactDom.hydrate)(_react.default.createElement(_reactRedux.Provider, {
-  store: _store.default
-}, _react.default.createElement(Root, null)), document.getElementById('app'));
+
+window.onload = function () {
+  _reactLoadable.default.preloadReady().then(function () {
+    (0, _reactDom.hydrate)(_react.default.createElement(_reactRedux.Provider, {
+      store: _store.default
+    }, _react.default.createElement(Root, null)), document.getElementById('app'));
+  });
+};

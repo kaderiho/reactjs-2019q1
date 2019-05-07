@@ -1,0 +1,5 @@
+"use strict";
+
+module.exports = function (appComponent, preLoadedState, chunks) {
+  return "<!doctype html>\n        <html lang=\"en\">\n        <head>\n            <meta charset=\"UTF-8\">\n            <meta name=\"viewport\"\n            content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\n            <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n            <title>Basic ReactJS application</title>\n            <base href=\"/dist/\" />\n            <link href=\"app.css\" rel=\"stylesheet\" />\n            <script>window.__INITIAL_DATA__ = ".concat(JSON.stringify(preLoadedState), "</script>\n        </head>\n        <body>\n            <div id=\"app\">").concat(appComponent, "</div>\n            <script src=\"app.bundle.js\" defer></script>\n            ").concat(chunks.join(''), "\n        </body>\n    </html>");
+};

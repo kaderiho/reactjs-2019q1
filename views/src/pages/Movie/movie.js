@@ -1,6 +1,6 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
@@ -19,13 +19,19 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
+
+var _react = _interopRequireWildcard3(require("react"));
+
+var _reactLoadable = _interopRequireDefault(require("react-loadable"));
 
 var _PagePlaceholder = _interopRequireDefault(require("../../components/PagePlaceholder/PagePlaceholder"));
 
-var _MovieDetails = _interopRequireDefault(require("../../components/MovieDetails/MovieDetails"));
-
 var _MoviesList = _interopRequireDefault(require("../../components/MoviesList/MoviesList"));
+
+var _Loading = _interopRequireDefault(require("../../components/Loading/Loading"));
 
 var _Header = _interopRequireDefault(require("../../components/Header/Header"));
 
@@ -34,6 +40,19 @@ var _Footer = _interopRequireDefault(require("../../components/Footer/Footer"));
 var _movies = require("../../store/actions/movies");
 
 var _reactRedux = require("react-redux");
+
+var LoadableMovieComponent = (0, _reactLoadable.default)((0, _defineProperty2.default)({
+  loader: function loader() {
+    return Promise.resolve().then(function () {
+      return (0, _interopRequireWildcard2.default)(require("../../components/MovieDetails/MovieDetails"));
+    });
+  },
+  modules: ["../../components/MovieDetails/MovieDetails"],
+  webpack: function webpack() {
+    return [require.resolveWeak("../../components/MovieDetails/MovieDetails")];
+  },
+  loading: _Loading.default
+}, "modules", ['MovieDetails']));
 
 var MoviePage =
 /*#__PURE__*/
@@ -71,7 +90,7 @@ function (_Component) {
         className: "headerInner"
       }, _react.default.createElement(_Header.default, {
         isSearchButtonEnabled: true
-      }), _react.default.createElement(_MovieDetails.default, movie))), _react.default.createElement("main", null, _react.default.createElement("div", {
+      }), _react.default.createElement(LoadableMovieComponent, movie))), _react.default.createElement("main", null, _react.default.createElement("div", {
         className: "subHeader"
       }, _react.default.createElement("span", {
         className: "filterResults"

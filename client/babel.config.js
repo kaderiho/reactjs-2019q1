@@ -13,7 +13,8 @@ module.exports = function (api) {
     const plugins = [
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-syntax-dynamic-import",
-        ["@babel/transform-runtime"]
+        ["@babel/transform-runtime"],
+        "react-loadable/babel"
     ];
 
     return {

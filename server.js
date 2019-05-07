@@ -4,11 +4,12 @@ const cors      = require('cors');
 const app       = express();
 const APP_PORT  = 8080;
 
-const renderPage = require('./client-ssr/ssr/app.js');
+const renderPage = require('./views/src/ssr/app.js');
 const moviesRoute = require('./routes/moviesRoute');
+const Loadable = require('react-loadable');
 
 // Server configuration
-app.use('/client', express.static(path.resolve(__dirname, 'client')));
+app.use('/dist', express.static(path.resolve(__dirname, 'dist')));
 app.use(cors());
 
 // API routing
@@ -18,6 +19,8 @@ app.get('*', (req, res) => {
 });
 
 // Server start
-app.listen(APP_PORT, () => {
-    console.log(`Server is started on ${APP_PORT} port`);
+Loadable.preloadAll().then(() => {
+    app.listen(APP_PORT, () => {
+        console.log(`Server is started on ${APP_PORT} port`);
+    });
 });

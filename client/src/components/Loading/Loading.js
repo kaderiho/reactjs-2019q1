@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default props => {
     if (props.error) {
       // When the loader has errored
