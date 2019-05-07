@@ -14,7 +14,7 @@ app.use(cors());
 // API routing
 app.use('/api/movies', moviesRoute);
 app.get('*', (req, res) => {
-    res.send(renderPage(req));
+    renderPage(req).then(renderedPage => res.send(renderedPage));
 });
 
 // Server start
