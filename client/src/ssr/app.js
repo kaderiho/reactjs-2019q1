@@ -12,32 +12,40 @@ import App from '../app';
 module.exports = req => {
     const store = createStore(rootReducer);
     const requiredDataPromises = [];
-    let context = {};
+    const context = {};
 
     routes.some(route => {
         const match = matchPath(req.path, route);
         if (match) {
-            console.log(match);
-            requiredDataPromises.push(route.fetchData(match));
+            requiredDataPromises.push(route.fetchData(match.params));
         };
         return match;
     });
 
-    return new Promise(resolve => {
-        Promise.all(requiredDataPromises).then(requredData => {
-            let [ moviesList ] = requredData;
-            store.dispatch(GET_MOVIES_SUCCESS(moviesList.data.data));
+    const renderMarkup = () => {
+        let markup = renderToString(
+            <Provider store={store}>
+                <StaticRouter context={context} location={req.url}>
+                    <App/>
+                </StaticRouter>
+            </Provider>
+        );
+        let preloadedState = store.getState();
 
-            let markup = renderToString(
-                <Provider store={store}>
-                    <StaticRouter context={context} location={req.url}>
-                        <App/>
-                    </StaticRouter>
-                </Provider>
-            );
-            let preloadedState = store.getState();
-        
-            resolve(IndexTemplate(markup, preloadedState));
+        return IndexTemplate(markup, preloadedState)
+    }
+
+    return new Promise(resolve => {
+        Promise.all(requiredDataPromises).then(requiredData => {
+            let [ response ] = requiredData;
+
+            if (response && response.data.data) {
+                store.dispatch(GET_MOVIES_SUCCESS([...response.data.data]));
+            } else {
+                store.dispatch(GET_MOVIES_SUCCESS([response && response.data]));
+            }
+
+            resolve(renderMarkup());
         });
     });
 };

@@ -2,6 +2,8 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
+var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
+
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 var _react = _interopRequireDefault(require("react"));
@@ -31,24 +33,38 @@ module.exports = function (req) {
 
   _routes.default.some(function (route) {
     var match = (0, _reactRouterDom.matchPath)(req.path, route);
-    if (match) requiredDataPromises.push(route.fetchData(match));
+
+    if (match) {
+      requiredDataPromises.push(route.fetchData(match.params));
+    }
+
+    ;
     return match;
   });
 
-  return new Promise(function (resolve) {
-    Promise.all(requiredDataPromises).then(function (requredData) {
-      var _requredData = (0, _slicedToArray2.default)(requredData, 1),
-          moviesList = _requredData[0];
+  var renderMarkup = function renderMarkup() {
+    var markup = (0, _server.renderToString)(_react.default.createElement(_reactRedux.Provider, {
+      store: store
+    }, _react.default.createElement(_reactRouterDom.StaticRouter, {
+      context: context,
+      location: req.url
+    }, _react.default.createElement(_app.default, null))));
+    var preloadedState = store.getState();
+    return (0, _template.default)(markup, preloadedState);
+  };
 
-      store.dispatch((0, _movies.GET_MOVIES_SUCCESS)(moviesList.data.data));
-      var markup = (0, _server.renderToString)(_react.default.createElement(_reactRedux.Provider, {
-        store: store
-      }, _react.default.createElement(_reactRouterDom.StaticRouter, {
-        context: context,
-        location: req.url
-      }, _react.default.createElement(_app.default, null))));
-      var preloadedState = store.getState();
-      resolve((0, _template.default)(markup, preloadedState));
+  return new Promise(function (resolve) {
+    Promise.all(requiredDataPromises).then(function (requiredData) {
+      var _requiredData = (0, _slicedToArray2.default)(requiredData, 1),
+          response = _requiredData[0];
+
+      if (response && response.data.data) {
+        store.dispatch((0, _movies.GET_MOVIES_SUCCESS)((0, _toConsumableArray2.default)(response.data.data)));
+      } else {
+        store.dispatch((0, _movies.GET_MOVIES_SUCCESS)([response && response.data]));
+      }
+
+      resolve(renderMarkup());
     });
   });
 };
