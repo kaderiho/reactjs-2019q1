@@ -1,9 +1,13 @@
-## Install & run
+## Installation
 
-In order to run application go through the following steps:
+In order to run application type `npm i` for both server and client parts
 
-- Run in command line `npm i` for server and client parts
-- Go to /client and run `build`
-- Go back to /server and run `server:prod` command
+## Development
 
-The application instance will be available on `http://localhost:8080`
+- Go to `/client` directory and run `npm run develop`
+
+## Production
+
+- Build client for production, run `npm run build` in `/client` directory
+- Back to the root folder and run `npm run build`. This command will prepare client assets for SSR
+- Run `npm run server` in order to turn on production server
