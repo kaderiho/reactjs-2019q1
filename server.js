@@ -4,23 +4,17 @@ const cors      = require('cors');
 const app       = express();
 const APP_PORT  = 8080;
 
+const renderPage = require('./client-ssr/ssr/app.js');
 const moviesRoute = require('./routes/moviesRoute');
-// const renderedApp = require('./ssr/renderedApp');
 
 // Server configuration
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use('/client', express.static(path.resolve(__dirname, 'client')));
 app.use(cors());
-
-// const initialState = {
-//     movies: [],
-//     sortBy: ''
-// };
 
 // API routing
 app.use('/api/movies', moviesRoute);
-app.get('*', (req, res, next) => {
-    // res.send(renderedApp(initialState));
-    res.sendFile(path.join(__dirname, '/client/dist', 'index.html'));
+app.get('*', (req, res) => {
+    res.send(renderPage(req));
 });
 
 // Server start

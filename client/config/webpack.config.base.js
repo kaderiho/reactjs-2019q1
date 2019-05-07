@@ -38,7 +38,7 @@ module.exports = env => {
          */
         output: {
             path: path.resolve(__dirname, '../dist'),
-            filename: '[name].bundle.[hash].js'
+            filename: '[name].bundle.js'
         },
 
         module: {

@@ -6,8 +6,6 @@ import MoviesList from 'components/MoviesList/MoviesList'
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 
-import './Movie.scss';
-
 import { GET_MOVIE_REQUEST } from 'store/actions/movies';
 import { connect } from 'react-redux';
 
