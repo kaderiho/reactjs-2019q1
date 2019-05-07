@@ -14,7 +14,7 @@ export function* fetchMoviesList() {
 export function* fetchMovie({ payload }) {
     try {
         let res = yield call(MoviesAPI.getItem, payload.movieId);
-        yield put(GET_MOVIE_SUCCESS(res.data.data));
+        yield put(GET_MOVIE_SUCCESS(res.data));
     } catch(e) {
         yield put(GET_MOVIE_ERROR(e));
     }
