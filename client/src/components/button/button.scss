@@ -23,7 +23,7 @@
     }
 
     &--third {
-        background-color: rgba(125, 125, 125, .5);
+        background-color: rgba(125, 125, 125, 0.5);
         color: #fff;
     }
 
@@ -46,5 +46,9 @@
     // Variants
     &--transparent {
         background: none;
+    }
+
+    & + .btn {
+        margin-left: 10px;
     }
 }
