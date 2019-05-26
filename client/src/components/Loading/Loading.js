@@ -1,17 +1,34 @@
 import React from 'react';
 
 export default props => {
-    if (props.error) {
-      // When the loader has errored
-      return <div>Error! <button onClick={ props.retry }>Retry</button></div>;
-    } else if (props.timedOut) {
-      // When the loader has taken longer than the timeout
-      return <div>Taking a long time... <button onClick={ props.retry }>Retry</button></div>;
-    } else if (props.pastDelay) {
-      // When the loader has taken longer than the delay
-      return <div>Loading...</div>;
-    } else {
-      // When the loader has just started
-      return null;
+    const { retry, timedOut, pastDelay, error } = props;
+
+    if (error) {
+        // When the loader has errored
+        return (
+            <div>
+                Error!{' '}
+                <button onClick={retry} type="button">
+                    Retry
+                </button>
+            </div>
+        );
     }
+    if (timedOut) {
+        // When the loader has taken longer than the timeout
+        return (
+            <div>
+                Taking a long time...{' '}
+                <button onClick={retry} type="button">
+                    Retry
+                </button>
+            </div>
+        );
+    }
+    if (pastDelay) {
+        // When the loader has taken longer than the delay
+        return <div>Loading...</div>;
+    }
+    // When the loader has just started
+    return null;
 };

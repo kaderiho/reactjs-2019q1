@@ -5,7 +5,7 @@ import './MoviesList.scss';
 
 class MoviesList extends React.Component {
     render() {
-        let { movies } = this.props;
+        const { movies } = this.props;
 
         if (!movies.length) {
             return '';
@@ -13,10 +13,12 @@ class MoviesList extends React.Component {
 
         return (
             <div className="moviesList">
-                {movies.map(movie => <MovieListCard key={movie.id} {...movie}/>)}
+                {movies.map(movie => (
+                    <MovieListCard key={movie.id} {...movie} />
+                ))}
             </div>
         );
     }
-};
+}
 
 export default MoviesList;

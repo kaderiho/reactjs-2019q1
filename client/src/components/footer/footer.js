@@ -4,7 +4,9 @@ import './Footer.scss';
 
 const Footer = () => (
     <footer>
-        <a href="/" className="logoLink">netflixroulette</a>
+        <a href="/" className="logoLink">
+            netflixroulette
+        </a>
     </footer>
 );
 

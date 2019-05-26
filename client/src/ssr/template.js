@@ -9,12 +9,14 @@ module.exports = (appComponent, preLoadedState, chunks) => {
             <title>Basic ReactJS application</title>
             <base href="/dist/" />
             <link href="app.css" rel="stylesheet" />
-            <script>window.__INITIAL_DATA__ = ${JSON.stringify(preLoadedState)}</script>
+            <script>window.__INITIAL_DATA__ = ${JSON.stringify(
+                preLoadedState
+            )}</script>
         </head>
         <body>
             <div id="app">${appComponent}</div>
             <script src="app.bundle.js" defer></script>
             ${chunks.join('')}
         </body>
-    </html>`
+    </html>`;
 };

@@ -14,9 +14,9 @@
     "precommit": "NODE_ENV=production lint-staged",
     "lint-staged": {
         "*.{js,jsx}": [
-          "pretty-quick --staged",
-          "eslint src/ --fix",
-          "git add"
+            "pretty-quick --staged",
+            "eslint src/ --fix",
+            "git add"
         ]
     },
     "keywords": [
@@ -66,6 +66,7 @@
     },
     "dependencies": {
         "axios": "^0.18.0",
+        "babel-eslint": "^10.0.1",
         "classnames": "^2.2.6",
         "query-string": "^6.4.2",
         "react": "^16.8.4",

@@ -11,7 +11,7 @@ const Button = ({
     className,
     children,
     onClick,
-    name,
+    name
 }) => {
     const buttonClass = classNames('btn', className, `btn--${size}`, {
         [`btn--${variant}`]: variant,
@@ -19,11 +19,12 @@ const Button = ({
     });
 
     return (
-        <button 
-            className={buttonClass} 
+        <button
+            className={buttonClass}
             onClick={onClick}
             type={type}
-            name={name}>
+            name={name}
+        >
             {children}
         </button>
     );

@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { sortByReleaseDate, sortByRating } from 'utils/list';
 
-const SortedList = Component => (props) => {
+const SortedList = Component => props => {
     let { sortBy, movies } = props;
 
     if (sortBy === 'release_date') {
@@ -17,14 +17,15 @@ const SortedList = Component => (props) => {
     return <Component movies={movies} />;
 };
 
-const mapStateToProps = ({ 
-    sortBy
-}) => ({
+const mapStateToProps = ({ sortBy }) => ({
     sortBy
 });
 
 const composedSortedList = compose(
-    connect(mapStateToProps, null),
+    connect(
+        mapStateToProps,
+        null
+    ),
     SortedList
 );
 
