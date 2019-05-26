@@ -41,7 +41,8 @@
     },
     "scripts": {
         "build": "babel client/src --out-dir views/src --ignore client/**/*.scss",
-        "server": "nodemon server.js"
+        "server": "npm run build && node server.js",
+        "server:dev": "nodemon server.js"
     },
     "repository": {
         "type": "git",

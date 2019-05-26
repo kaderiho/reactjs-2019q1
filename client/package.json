@@ -7,9 +7,9 @@
         "develop": "webpack-dev-server --config ./config/webpack.config.dev.js --env.ENVIRONMENT=development",
         "build": "npm run clean:dist && webpack --config ./config/webpack.config.prod.js --env.ENVIRONMENT=production",
         "clean:dist": "rimraf dist",
-        "test": "jest",
         "test:watch": "npm run test --watch",
-        "test:e2e": "cypress open"
+        "test:e2e": "cypress open",
+        "test": "jest"
     },
     "keywords": [
         "Movies"

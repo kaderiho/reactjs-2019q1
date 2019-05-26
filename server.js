@@ -4,9 +4,9 @@ const cors      = require('cors');
 const app       = express();
 const APP_PORT  = 8080;
 
-const renderPage = require('./views/src/ssr/app.js');
-const moviesRoute = require('./routes/moviesRoute');
-const Loadable = require('react-loadable');
+const renderPage    = require('./views/src/ssr/app.js');
+const moviesRoute   = require('./routes/moviesRoute');
+const Loadable      = require('react-loadable');
 
 // Server configuration
 app.use('/dist', express.static(path.resolve(__dirname, 'dist')));
