@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* @flow */
+import * as React from 'react';
 import Loadable from 'react-loadable';
 
 import PagePlaceholder from 'components/PagePlaceholder/PagePlaceholder';
@@ -20,7 +21,14 @@ const LoadableMovieComponent = Loadable({
     modules: ['MovieDetails']
 });
 
-class MoviePage extends Component {
+type Props = {
+    getMovie: function,
+    match: object,
+    movies: array,
+    movie: array
+};
+
+class MoviePage extends React.Component<Props> {
     componentDidMount() {
         const { getMovie, match } = this.props;
         getMovie(match.params.id);

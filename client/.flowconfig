@@ -1,0 +1,21 @@
+[ignore]
+.*/node_modules/.*
+.*/dist/.*
+
+[include]
+
+[libs]
+type-def-libs
+
+[lints]
+
+[options]
+module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
+module.name_mapper='^shared' ->'<PROJECT_ROOT>/src/shared'
+module.name_mapper='^pages' ->'<PROJECT_ROOT>/src/pages'
+module.name_mapper='^utils' ->'<PROJECT_ROOT>/src/utils'
+module.name_mapper='^store' ->'<PROJECT_ROOT>/src/store'
+module.name_mapper='^hoc' ->'<PROJECT_ROOT>/src/hoc'
+module.name_mapper='^api' ->'<PROJECT_ROOT>/src/api'
+module.name_mapper.extension='scss' -> 'empty/object'
+[strict]

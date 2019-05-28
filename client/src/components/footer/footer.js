@@ -1,13 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import './Footer.scss';
+const FooterContainer = styled.footer`
+    width: 1024px;
+    margin: 0 auto;
+    height: 45px;
+    background-color: #3c3c3c;
+    padding: 11px 32px;
+    box-sizing: border-box;
+`;
 
 const Footer = () => (
-    <footer>
+    <FooterContainer>
         <a href="/" className="logoLink">
             netflixroulette
         </a>
-    </footer>
+    </FooterContainer>
 );
 
 export default Footer;

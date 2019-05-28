@@ -2,31 +2,12 @@
     padding: 30px 32px;
 }
 
-.headerFilter-title {
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 14px;
-    margin: 0 0 20px;
-}
-
 .headerSubFilter {
     display: flex;
     align-items: center;
     margin-top: 20px;
 }
 
-.headerSubFilter-label {
-    text-transform: uppercase;
-    margin-right: 10px;
-    color: #fff;
-    font-size: 12px;
-}
-
 .headerSubFilter-button + .headerSubFilter-button {
     margin-left: 10px;
-}
-
-.headerSubFilter-searchButton {
-    margin-left: auto;
-    width: 200px;
 }

@@ -1,20 +1,48 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import Button from 'components/Button/Button';
 import Input from 'components/Input/Input';
+import styled from 'styled-components';
 import './HeaderFilter.scss';
 
-export class HeaderFilter extends Component {
+const FormTitle = styled.p`
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 14px;
+    margin: 0 0 20px;
+`;
+const FormLabel = styled.span`
+    text-transform: uppercase;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 12px;
+`;
+const SearchButton = styled(Button)`
+    margin-left: auto;
+    width: 200px;
+`;
+
+type Props = {
+    location: object,
+    history: object
+};
+
+type State = {
+    searchStr: string,
+    searchBy: string
+};
+
+export class HeaderFilter extends React.Component<Props, State> {
     state = {
         searchStr: '',
         searchBy: ''
     };
 
     componentDidMount() {
-        const { searchStr, searchBy } = queryString.parse(
-            this.props.location.search
-        );
+        const { location } = this.props;
+        const { searchStr, searchBy } = queryString.parse(location.search);
 
         this.setState({
             searchStr: searchStr || '',
@@ -22,23 +50,23 @@ export class HeaderFilter extends Component {
         });
     }
 
-    onInputHandler = ev => {
+    onInputHandler = (ev: SyntheticInputEvent<EventTarget>) => {
         this.setState({
             searchStr: ev.target.value
         });
     };
 
-    onFilterByHandler = ev => {
+    onFilterByHandler = (ev: SyntheticInputEvent<EventTarget>) => {
         this.setState({
             searchBy: ev.target.name
         });
     };
 
-    onSearchHandler = e => {
-        e.preventDefault();
+    onSearchHandler = (ev: SyntheticInputEvent<EventTarget>) => {
+        ev.preventDefault();
 
         const { searchStr, searchBy } = this.state;
-        let history = this.props;
+        const { history } = this.props;
         const search = {};
 
         if (searchStr) {
@@ -63,7 +91,7 @@ export class HeaderFilter extends Component {
         return (
             <div className="headerFilter">
                 <form onSubmit={this.onSearchHandler}>
-                    <p className="headerFilter-title">Find your movie</p>
+                    <FormTitle>Find your movie</FormTitle>
                     <Input
                         placeholder="Type movie name here"
                         value={searchStr}
@@ -72,35 +100,40 @@ export class HeaderFilter extends Component {
                         id="searchFilter"
                     />
                     <div className="headerSubFilter">
-                        <span className="headerSubFilter-label">Search by</span>
-                        <Button
-                            className="headerSubFilter-button"
-                            onClick={this.onFilterByHandler}
-                            name="title"
-                            color={searchBy === 'title' ? 'secondary' : 'third'}
-                            size="small"
-                        >
-                            Title
-                        </Button>
-                        <Button
-                            className="headerSubFilter-button"
-                            onClick={this.onFilterByHandler}
-                            name="genres"
-                            color={
-                                searchBy === 'genres' ? 'secondary' : 'third'
-                            }
-                            size="small"
-                        >
-                            Genre
-                        </Button>
-                        <Button
-                            className="headerSubFilter-searchButton"
+                        <FormLabel>Search by</FormLabel>
+                        <div>
+                            <Button
+                                className="headerSubFilter-button"
+                                onClick={this.onFilterByHandler}
+                                name="title"
+                                color={
+                                    searchBy === 'title' ? 'secondary' : 'third'
+                                }
+                                size="small"
+                            >
+                                Title
+                            </Button>
+                            <Button
+                                className="headerSubFilter-button"
+                                onClick={this.onFilterByHandler}
+                                name="genres"
+                                color={
+                                    searchBy === 'genres'
+                                        ? 'secondary'
+                                        : 'third'
+                                }
+                                size="small"
+                            >
+                                Genre
+                            </Button>
+                        </div>
+                        <SearchButton
                             onClick={this.onSearchHandler}
                             color="secondary"
                             type="submit"
                         >
                             Search
-                        </Button>
+                        </SearchButton>
                     </div>
                 </form>
             </div>
