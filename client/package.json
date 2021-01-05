@@ -71,7 +71,7 @@
         "webpack-visualizer-plugin": "^0.1.11"
     },
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "babel-eslint": "^10.0.1",
         "classnames": "^2.2.6",
         "immutable": "^4.0.0-rc.12",
